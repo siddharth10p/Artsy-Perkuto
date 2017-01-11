@@ -8,11 +8,12 @@
  * Copyright © Peruto Solutions Inc.
  **/
 public with sharing class PopulateRecycledReasonHandler {
+    public static final String STR_LLC_REASON = 'Opportunity Closed';
     public static void updateRecycledStageReason (Map<Id, Opportunity> pOpptyIdObjMap) {
         Map<Id, String> opptyIdReasonMap = new Map<Id, String> ();
         for (Opportunity oppty : pOpptyIdObjMap.values()) {
             if (oppty.IsClosed)
-                opptyIdReasonMap.put (oppty.Id, oppty.Lifecycle_Reason__c);
+                opptyIdReasonMap.put (oppty.Id, STR_LLC_REASON);
         }
 
         Map<String, String> conIdOppIdMap = new Map<String, String> ();
